@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/car_hud.gd" id="3_ab0cv"]
 
 [sub_resource type="Curve" id="Curve_wimb7"]
-_data = [Vector2(0.29529, 0.190746), 0.0, 0.0, 0, 0, Vector2(0.733696, 0.896138), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.456835, 0.285714), 0.0, 0.0, 0, 0, Vector2(0.510791, 0.835165), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_thmew"]

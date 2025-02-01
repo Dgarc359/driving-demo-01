@@ -35,7 +35,8 @@ func get_ray_x_basis(ray: RayCast3D):
 
 
 func rotate_model_to_direction(delta, dir: Vector3):
-	var rotation_to_do = lerp(0.0, - dir.x, s.sample(delta))
+	#var rotation_to_do = lerp(0.0, - dir.x, s.sample(delta))
+	var rotation_to_do = move_toward(0.0, - dir.x, 0.1 * s.sample(delta))
 	
 	VEHICLE_MODEL.rotate_y(rotation_to_do)
 	forward_ray.rotate_object_local(Vector3.FORWARD, rotation_to_do)
