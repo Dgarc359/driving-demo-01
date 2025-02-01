@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcthqpogl584w"]
+
+[ext_resource type="Script" path="res://scripts/car_controller.gd" id="1_xfdrm"]
+[ext_resource type="PackedScene" uid="uid://blgt260xpdl85" path="res://scenes/imported-vehicle.tscn" id="2_7c08d"]
+[ext_resource type="Script" path="res://scripts/car_hud.gd" id="3_ab0cv"]
+
+[sub_resource type="Curve" id="Curve_wimb7"]
+_data = [Vector2(0.29529, 0.190746), 0.0, 0.0, 0, 0, Vector2(0.733696, 0.896138), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_thmew"]
+radius = 0.2772
+height = 1.07965
+
+[node name="Car-controller" type="CharacterBody3D"]
+transform = Transform3D(1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, 1, 0, 0, 0)
+script = ExtResource("1_xfdrm")
+s = SubResource("Curve_wimb7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.88103e-08, -1, 6.70552e-08, 0, 6.70552e-08, 1, -1, 2.88103e-08, -9.32677e-16, 0, 0.243695, 0)
+shape = SubResource("CapsuleShape3D_thmew")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.756105, -0.360322, 0.546328, 0.0190465, 0.84655, 0.531969, -0.654173, -0.391818, 0.646943, 2.03827, 2.02924, 0.953221)
+
+[node name="vehicle-suv3" parent="." instance=ExtResource("2_7c08d")]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+script = ExtResource("3_ab0cv")
+
+[node name="MPH" type="TextEdit" parent="HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -109.0
+grow_horizontal = 0
+grow_vertical = 0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://blgt260xpdl85"]
+
+[ext_resource type="PackedScene" uid="uid://dj2jm541g6x2d" path="res://assets/3d-assets/vehicle-suv.glb" id="1_xksi4"]
+[ext_resource type="Texture2D" uid="uid://bwg6w4w4xxu7k" path="res://assets/texture/texture_01.png" id="2_4u4d7"]
+[ext_resource type="Texture2D" uid="uid://cyfn7blaxqq2e" path="res://assets/texture/texture_04.png" id="3_5gvnv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc6jg"]
+albedo_texture = ExtResource("2_4u4d7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8yqsq"]
+albedo_texture = ExtResource("3_5gvnv")
+
+[node name="vehicle-suv2" instance=ExtResource("1_xksi4")]
+transform = Transform3D(-4.3898e-08, 0, 1.00427, 0, 1.00427, 0, -1.00427, 0, -4.3898e-08, 0, 0, 0)
+
+[node name="vehicle-suv" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gc6jg")
+
+[node name="wheel-fr" parent="vehicle-suv" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8yqsq")
+
+[node name="wheel-fl" parent="vehicle-suv" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8yqsq")
+
+[node name="wheel-br" parent="vehicle-suv" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8yqsq")
+
+[node name="wheel-bl" parent="vehicle-suv" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8yqsq")
