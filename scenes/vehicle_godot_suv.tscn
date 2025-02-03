@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dikke5wkfw0d8"]
+
+[ext_resource type="PackedScene" uid="uid://daeyrjy1b08ql" path="res://assets/3d-assets/vehicle-godot-suv.glb" id="1_fwjuf"]
+
+[node name="vehicle-godot-suv" instance=ExtResource("1_fwjuf")]

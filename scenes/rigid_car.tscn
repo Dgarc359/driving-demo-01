@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ojl8ywwa5q3"]
+
+[ext_resource type="Script" path="res://scripts/rigid_car.gd" id="1_33xpx"]
+[ext_resource type="PackedScene" uid="uid://daeyrjy1b08ql" path="res://assets/3d-assets/vehicle-godot-suv.glb" id="2_s2g5y"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_53pbp"]
+radius = 0.276137
+height = 1.05161
+
+[node name="RigidCar" type="RigidBody3D"]
+script = ExtResource("1_33xpx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.272558, 0)
+shape = SubResource("CapsuleShape3D_53pbp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9319, 0.362715, 0, -0.362715, 0.9319, -0.00449359, 1.57482, 1.53294)
+
+[node name="vehicle-godot-suv" parent="." instance=ExtResource("2_s2g5y")]

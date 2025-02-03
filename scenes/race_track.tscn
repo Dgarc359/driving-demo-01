@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://j4m62lwbne0p"]
+
+[ext_resource type="PackedScene" uid="uid://bbf10khxube03" path="res://assets/3d-assets/race-track.glb" id="1_qr6kh"]
+
+[node name="race-track" instance=ExtResource("1_qr6kh")]

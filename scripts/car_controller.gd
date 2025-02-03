@@ -36,7 +36,7 @@ func get_ray_x_basis(ray: RayCast3D):
 
 func rotate_model_to_direction(delta, dir: Vector3):
 	#var rotation_to_do = lerp(0.0, - dir.x, s.sample(delta))
-	var rotation_to_do = move_toward(0.0, - dir.x, 0.1 * s.sample(delta))
+	var rotation_to_do = move_toward(0.0, dir.x, 0.1 * s.sample(delta))
 	
 	VEHICLE_MODEL.rotate_y(rotation_to_do)
 	forward_ray.rotate_object_local(Vector3.FORWARD, rotation_to_do)
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction := (transform.basis * Vector3(input_dir.x, 0, 0)).normalized()
 	
 	if Input.is_action_pressed("ui_up"):
 		CURRENT_MPH = move_toward(CURRENT_MPH, CURRENT_MPH + 1, ACCELERATION)
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		# https://docs.godotengine.org/en/latest/tutorials/3d/using_transforms.html
 		# NO, the flipped X / Z are not incorrect
 		# SWITCHING these or changing this without understanding the consequences... is DIRE
-		velocity.z = move_toward(velocity.z, - ray_x_basis.x * CURRENT_MPH, TRACTION)
-		velocity.x = ray_x_basis.z * CURRENT_MPH
+		velocity.z = move_toward(velocity.z, ray_x_basis.x * CURRENT_MPH, TRACTION)
+		velocity.x = - ray_x_basis.z * CURRENT_MPH
 
 	move_and_slide()

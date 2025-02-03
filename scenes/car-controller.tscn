@@ -22,7 +22,7 @@ transform = Transform3D(-2.88103e-08, -1, 6.70552e-08, 0, 6.70552e-08, 1, -1, 2.
 shape = SubResource("CapsuleShape3D_thmew")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.756105, -0.360322, 0.546328, 0.0190465, 0.84655, 0.531969, -0.654173, -0.391818, 0.646943, 2.03827, 2.02924, 0.953221)
+transform = Transform3D(-2.85839e-08, -0.173648, 0.984808, -2.58756e-09, 0.984808, 0.173648, -1, 2.41529e-09, -2.8599e-08, 2.39152, 1.6114, -3.32639e-08)
 
 [node name="vehicle-suv3" parent="." instance=ExtResource("2_7c08d")]
 
