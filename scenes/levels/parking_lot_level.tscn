@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc8r7ph5e72gv"]
+
+[ext_resource type="PackedScene" uid="uid://dbohbht45vr6r" path="res://scenes/parking_lot.tscn" id="1_el7kc"]
+[ext_resource type="PackedScene" uid="uid://bka11q4c4rl77" path="res://scenes/sphere_car_controller.tscn" id="2_qrg66"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvgam"]
+sky_top_color = Color(0.741473, 0.222067, 0.440984, 1)
+sky_horizon_color = Color(0.526591, 0.674631, 0.800671, 1)
+
+[sub_resource type="Sky" id="Sky_jtwu2"]
+sky_material = SubResource("ProceduralSkyMaterial_gvgam")
+
+[sub_resource type="Environment" id="Environment_qaxvf"]
+background_mode = 2
+sky = SubResource("Sky_jtwu2")
+
+[node name="ParkingLotLevel" type="Node3D"]
+
+[node name="parking-lot" parent="." instance=ExtResource("1_el7kc")]
+
+[node name="SphereCarController" parent="." instance=ExtResource("2_qrg66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qaxvf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.137855, 0.613652, -0.77745, -0.10714, 0.789577, 0.604226, 0.984641, 0, 0.174593, -25.6349, 13.6286, 0)

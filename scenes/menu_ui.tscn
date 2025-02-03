@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci1jl5kmpe3i8"]
+
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_0s3vg"]
+[ext_resource type="PackedScene" uid="uid://bc8r7ph5e72gv" path="res://scenes/levels/parking_lot_level.tscn" id="2_jqw3m"]
+[ext_resource type="PackedScene" uid="uid://cyin8sti7epx7" path="res://scenes/levels/level_one.tscn" id="2_nwb87"]
+
+[node name="MenuUi" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Parking Lot" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 476.0
+offset_top = 229.0
+offset_right = 572.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Parking Lot"
+script = ExtResource("1_0s3vg")
+scene_to_switch_to = ExtResource("2_jqw3m")
+
+[node name="Race Track" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 374.0
+offset_right = 588.0
+offset_bottom = 405.0
+text = "Race Track"
+script = ExtResource("1_0s3vg")
+scene_to_switch_to = ExtResource("2_nwb87")
