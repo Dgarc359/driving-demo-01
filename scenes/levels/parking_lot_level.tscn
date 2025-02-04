@@ -18,7 +18,7 @@ sky = SubResource("Sky_jtwu2")
 script = ExtResource("1_wsyhp")
 
 [node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10459, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.10459, 0)
 
 [node name="parking-lot" parent="." instance=ExtResource("1_el7kc")]
 
