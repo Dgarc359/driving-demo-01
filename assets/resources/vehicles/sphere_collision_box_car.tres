@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SelectableVehicle" load_steps=3 format=3 uid="uid://bltlivuj7m7d2"]
+
+[ext_resource type="Script" path="res://scripts/selectable_vehicle.gd" id="1_wv36n"]
+[ext_resource type="PackedScene" uid="uid://bka11q4c4rl77" path="res://scenes/vehicles/sphere_car_controller.tscn" id="2_k4r60"]
+
+[resource]
+script = ExtResource("1_wv36n")
+display_name = "Sphere Collision Car"
+description = "BUGGY - NOT RECOMMENDED"
+vehicle_scene = ExtResource("2_k4r60")

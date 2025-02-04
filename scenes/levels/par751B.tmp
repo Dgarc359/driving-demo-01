@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc8r7ph5e72gv"]
+[gd_scene load_steps=7 format=3 uid="uid://bc8r7ph5e72gv"]
 
 [ext_resource type="PackedScene" uid="uid://dbohbht45vr6r" path="res://scenes/parking_lot.tscn" id="1_el7kc"]
-[ext_resource type="Script" path="res://scripts/main_level_loading.gd" id="1_wsyhp"]
+[ext_resource type="Script" path="res://scripts/parking_lot_level.gd" id="1_wsyhp"]
+[ext_resource type="PackedScene" uid="uid://bka11q4c4rl77" path="res://scenes/vehicles/sphere_car_controller.tscn" id="2_qrg66"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvgam"]
 sky_top_color = Color(0.741473, 0.222067, 0.440984, 1)
@@ -17,10 +18,10 @@ sky = SubResource("Sky_jtwu2")
 [node name="ParkingLotLevel" type="Node3D"]
 script = ExtResource("1_wsyhp")
 
-[node name="SpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10459, 0)
-
 [node name="parking-lot" parent="." instance=ExtResource("1_el7kc")]
+
+[node name="SphereCarController" parent="." instance=ExtResource("2_qrg66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qaxvf")

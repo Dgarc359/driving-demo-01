@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SelectableVehicle" load_steps=3 format=3 uid="uid://beprywepenvya"]
+
+[ext_resource type="Script" path="res://scripts/selectable_vehicle.gd" id="1_31wrc"]
+[ext_resource type="PackedScene" uid="uid://bcthqpogl584w" path="res://scenes/vehicles/car-controller.tscn" id="2_aayud"]
+
+[resource]
+script = ExtResource("1_31wrc")
+display_name = "Basic Car"
+description = "(Recommended) The basic car"
+vehicle_scene = ExtResource("2_aayud")
