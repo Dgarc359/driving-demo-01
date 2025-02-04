@@ -1,7 +1,7 @@
-extends Node3D
+extends Control
 class_name MainMenuRootNode
 
-const INITIAL_CONFIG = preload("res://assets/resources/initial_config.tres")
+var INITIAL_CONFIG = preload("res://assets/resources/initial_config.tres")
 @onready var init_control: Control = $InitControl
 @onready var level_select_control: Control = $LevelSelectControl
 @onready var vehicle_select_control: Control = $VehicleSelectControl
@@ -42,8 +42,3 @@ func switch_to_new_menu_state(menu_state: String) -> void:
 func _ready() -> void:
 	switch_to_new_menu_state(current_menu_state)
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

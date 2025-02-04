@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cyin8sti7epx7" path="res://scenes/levels/level_one.tscn" id="2_nwb87"]
 [ext_resource type="Script" path="res://scripts/vehicle_controller.gd" id="3_setnc"]
 
-[node name="MenuUi" type="Node3D"]
+[node name="MenuUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_udfkx")
 
 [node name="InitControl" type="Control" parent="."]
