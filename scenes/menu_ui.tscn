@@ -1,18 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci1jl5kmpe3i8"]
+[gd_scene load_steps=7 format=3 uid="uid://ci1jl5kmpe3i8"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_0s3vg"]
+[ext_resource type="Script" path="res://scripts/menu_ui.gd" id="1_udfkx"]
+[ext_resource type="Script" path="res://scripts/ui_traversal_button.gd" id="2_cnag4"]
 [ext_resource type="PackedScene" uid="uid://bc8r7ph5e72gv" path="res://scenes/levels/parking_lot_level.tscn" id="2_jqw3m"]
 [ext_resource type="PackedScene" uid="uid://cyin8sti7epx7" path="res://scenes/levels/level_one.tscn" id="2_nwb87"]
+[ext_resource type="Script" path="res://scripts/vehicle_controller.gd" id="3_setnc"]
 
 [node name="MenuUi" type="Node3D"]
+script = ExtResource("1_udfkx")
 
-[node name="Control" type="Control" parent="."]
+[node name="InitControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Parking Lot" type="Button" parent="Control"]
+[node name="PlayButton" type="Button" parent="InitControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 14.123
+anchor_top = 7.437
+anchor_right = 14.123
+anchor_bottom = 7.437
+offset_left = -51.92
+offset_top = -122.48
+offset_right = 54.08
+offset_bottom = -64.48
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+script = ExtResource("2_cnag4")
+
+[node name="OptionsButton" type="Button" parent="InitControl"]
+layout_mode = 0
+offset_left = 511.0
+offset_top = 286.0
+offset_right = 628.0
+offset_bottom = 341.0
+text = "Options"
+
+[node name="VehicleSelectControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_setnc")
+
+[node name="LevelSelectControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Parking Lot" type="Button" parent="LevelSelectControl"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,7 +73,7 @@ text = "Parking Lot"
 script = ExtResource("1_0s3vg")
 scene_to_switch_to = ExtResource("2_jqw3m")
 
-[node name="Race Track" type="Button" parent="Control"]
+[node name="Race Track" type="Button" parent="LevelSelectControl"]
 layout_mode = 0
 offset_left = 496.0
 offset_top = 374.0

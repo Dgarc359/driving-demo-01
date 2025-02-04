@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc8r7ph5e72gv"]
 
 [ext_resource type="PackedScene" uid="uid://dbohbht45vr6r" path="res://scenes/parking_lot.tscn" id="1_el7kc"]
-[ext_resource type="PackedScene" uid="uid://bka11q4c4rl77" path="res://scenes/sphere_car_controller.tscn" id="2_qrg66"]
+[ext_resource type="PackedScene" uid="uid://bka11q4c4rl77" path="res://scenes/vehicles/sphere_car_controller.tscn" id="2_qrg66"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvgam"]
 sky_top_color = Color(0.741473, 0.222067, 0.440984, 1)

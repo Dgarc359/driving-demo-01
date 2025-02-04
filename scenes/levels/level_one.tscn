@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cyin8sti7epx7"]
 
-[ext_resource type="PackedScene" uid="uid://bcthqpogl584w" path="res://scenes/car-controller.tscn" id="1_co805"]
+[ext_resource type="PackedScene" uid="uid://bcthqpogl584w" path="res://scenes/vehicles/car-controller.tscn" id="1_co805"]
 [ext_resource type="PackedScene" uid="uid://cn2mfrey10boj" path="res://scenes/race_track_02.tscn" id="2_4bni2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5b20i"]
