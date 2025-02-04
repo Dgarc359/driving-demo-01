@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SelectableVehicle" load_steps=3 format=3 uid="uid://5sai0wlatrn0"]
+
+[ext_resource type="Script" path="res://scripts/selectable_vehicle.gd" id="1_xd27k"]
+[ext_resource type="PackedScene" uid="uid://unnxntlps2q8" path="res://scenes/vehicles/rigid_body_controller.tscn" id="2_ovqhn"]
+
+[resource]
+script = ExtResource("1_xd27k")
+display_name = "RIGID BODY!!!!"
+description = "This one's dedicated to solra"
+vehicle_scene = ExtResource("2_ovqhn")

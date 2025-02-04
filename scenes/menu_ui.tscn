@@ -47,8 +47,10 @@ text = "Options"
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 489.0
+offset_top = 215.0
+offset_right = 529.0
+offset_bottom = 255.0
 script = ExtResource("3_setnc")
 
 [node name="LevelSelectControl" type="Control" parent="."]
