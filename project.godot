@@ -21,4 +21,5 @@ shapes/paths/geometry_width=100.0
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
