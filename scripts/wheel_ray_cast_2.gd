@@ -17,7 +17,7 @@ var force: Vector3
 var offset : Vector3
 var previous_spring_compression : float
 var current_spring_compression : float
-var spring_rest_distance : float
+var spring_compression_length_at_rest : float
 var wheel_position : Vector3
 var spring_velocity : float
 
@@ -42,8 +42,8 @@ func init_suspension(rest_force: float, arg_max_spring_length: float, arg_spring
 	previous_spring_compression = 0
 	cprint("logger", ['rest force', rest_force])
 	cprint("logger", ['spring stiffness', spring_stiffness])
-	spring_rest_distance = rest_force / spring_stiffness
-	cprint("logger", ['spring rest distance', spring_rest_distance])
+	spring_compression_length_at_rest = rest_force / spring_stiffness
+	cprint("logger", ['spring compression length at rest', spring_compression_length_at_rest])
 	
 	# just cache the groups we're in so we don't need to keep checking
 	# this is something that should be set at runtime
@@ -74,15 +74,19 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		cprint("logger", ['current spring compression', current_spring_compression])
 		previous_spring_compression = current_spring_compression
 		
-		# f = k * x (hooke's law) says that force = K which is some positive real number
+		var spring_compression = spring_compression_length_at_rest - previous_spring_compression
+		
+		
+		# f = k * x (hooke's law) says that force = K * X where K is some positive real number
 		# characteristic of a spring
 		# X should be how much our spring has compressed
 		# 							K ??			X
-		var spring_force: float = spring_stiffness * (spring_rest_distance - previous_spring_compression) # Hooke's law
+		var spring_force: float = spring_stiffness * spring_compression # Hooke's law
 		
 		
 		var damped_velocity: float = spring_damping * spring_velocity
-		cprint("logger", ["current spring force", spring_force, "damping force", spring_damping, 'spring velocity', spring_velocity, "damped velocity", damped_velocity])
+		cprint("logger", ["current spring force", spring_force, "damping force", spring_damping, 'spring velocity', spring_velocity, "damped velocity", damped_velocity, "spring compression", spring_compression])
+		
 		var upward_force = spring_force + damped_velocity
 		cprint("logger", ['upward force: ', upward_force])
 		force = Vector3(0, upward_force, 0)
