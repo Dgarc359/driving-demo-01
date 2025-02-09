@@ -21,6 +21,8 @@ var spring_rest_distance : float
 var wheel_position : Vector3
 var spring_velocity : float
 
+var groups: Array[StringName]
+
 
 func init_suspension(rest_force: float, arg_max_spring_length: float, arg_spring_stiffness: float, arg_spring_damping: float):
 	max_spring_length = arg_max_spring_length
@@ -35,12 +37,24 @@ func init_suspension(rest_force: float, arg_max_spring_length: float, arg_spring
 	assert(wheel_radius <= max_spring_length) 
 	
 	target_position = Vector3(0, -(max_spring_length - wheel_radius), 0)
-	print('ray target position: ', target_position)
+	cprint("logger", ['ray target position', target_position])
 	previous_spring_compression = 0
-	print('rest force ', rest_force)
-	print('spring stiffness ', spring_stiffness)
+	cprint("logger", ['rest force', rest_force])
+	cprint("logger", ['spring stiffness', spring_stiffness])
 	spring_rest_distance = rest_force / spring_stiffness
-	print('spring rest distance: ', spring_rest_distance)
+	cprint("logger", ['spring rest distance', spring_rest_distance])
+	
+	# just cache the groups we're in so we don't need to keep checking
+	# this is something that should be set at runtime
+	groups = get_groups()
+
+# conditional print, based on node group
+func cprint(group: String, args):
+	if groups.has(group):
+		var str_to_print = " ".join(args.map(func (v): return str(v)))
+		print(str_to_print)
+	pass
+
 
 func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quaternion):
 	if is_colliding():
@@ -52,6 +66,8 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		else:
 			spring_velocity = 0
 		
+		cprint("logger", ['previous spring compression', previous_spring_compression])
+		cprint("logger", ['current spring compression', current_spring_compression])
 		previous_spring_compression = current_spring_compression
 		
 		# f = k * x (hooke's law) says that force = K which is some positive real number
@@ -63,7 +79,7 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		
 		var damping_force: float = spring_damping * spring_velocity
 		var upward_force = spring_force + damping_force
-		print('upward force: ', upward_force)
+		cprint("logger", ['upward force: ', upward_force])
 		force = Vector3(0, upward_force, 0)
 		#offset = vehicle_rotation * contact_point_vehicle
 		offset = contact_point - vehicle.global_position

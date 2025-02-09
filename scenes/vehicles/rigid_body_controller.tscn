@@ -19,7 +19,7 @@ script = ExtResource("1_qn6jt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420106, 0)
 shape = SubResource("BoxShape3D_qv666")
 
-[node name="WheelBR" type="RayCast3D" parent="RigidBody3D"]
+[node name="WheelBR" type="RayCast3D" parent="RigidBody3D" groups=["logger"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225019, 0.315577, 0.25029)
 script = ExtResource("2_s08y1")
 
