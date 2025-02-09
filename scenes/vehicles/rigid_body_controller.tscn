@@ -20,19 +20,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420106, 0)
 shape = SubResource("BoxShape3D_qv666")
 
 [node name="WheelBR" type="RayCast3D" parent="RigidBody3D" groups=["logger"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225019, 0.315577, 0.25029)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496068, 0.315577, 0.497245)
 script = ExtResource("2_s08y1")
 
 [node name="WheelFR" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.222377, 0.315577, -0.222518)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49687, 0.315577, -0.497011)
 script = ExtResource("2_s08y1")
 
 [node name="WheelFL" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2293, 0.315577, -0.222518)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49051, 0.315577, -0.492584)
 script = ExtResource("2_s08y1")
 
 [node name="WheelBL" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.218735, 0.315577, 0.25029)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495807, 0.315577, 0.503268)
 script = ExtResource("2_s08y1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]

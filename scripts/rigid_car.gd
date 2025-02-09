@@ -8,10 +8,10 @@ class_name RigidCar
 
 
 # reference for these vars: https://www.youtube.com/watch?v=6hEL66P1WQw
-@export var max_spring_length: float = 0.5
+@export var max_spring_length: float = 1.0
 
-@export var spring_stiffness: float = 40.0
-@export var spring_damping: float = 0.001
+@export var spring_stiffness: float = 12.0
+@export var spring_damping: float = 10.0
 
 
 

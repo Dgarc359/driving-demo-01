@@ -76,6 +76,9 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		
 		var spring_compression = spring_compression_length_at_rest - previous_spring_compression
 		
+		cprint("logger", [
+			"spring compression", spring_compression
+		])
 		
 		# f = k * x (hooke's law) says that force = K * X where K is some positive real number
 		# characteristic of a spring
@@ -85,7 +88,13 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		
 		
 		var damped_velocity: float = spring_damping * spring_velocity
-		cprint("logger", ["current spring force", spring_force, "damping force", spring_damping, 'spring velocity', spring_velocity, "damped velocity", damped_velocity, "spring compression", spring_compression])
+		cprint("logger", [
+			"current spring force", spring_force, 
+			"damping force", spring_damping, 
+			'spring velocity', spring_velocity, 
+			"damped velocity", damped_velocity, 
+			"spring compression", spring_compression
+		])
 		
 		var upward_force = spring_force + damped_velocity
 		cprint("logger", ['upward force: ', upward_force])
