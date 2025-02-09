@@ -25,6 +25,7 @@ var groups: Array[StringName]
 
 
 func init_suspension(rest_force: float, arg_max_spring_length: float, arg_spring_stiffness: float, arg_spring_damping: float):
+	groups = get_groups()
 	max_spring_length = arg_max_spring_length
 	spring_stiffness = arg_spring_stiffness
 	spring_damping = arg_spring_damping
@@ -46,7 +47,7 @@ func init_suspension(rest_force: float, arg_max_spring_length: float, arg_spring
 	
 	# just cache the groups we're in so we don't need to keep checking
 	# this is something that should be set at runtime
-	groups = get_groups()
+	
 
 # conditional print, based on node group
 func cprint(group: String, args):
@@ -62,10 +63,13 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		var contact_point_vehicle: Vector3 = vehicle.to_local(contact_point)
 		current_spring_compression = contact_point_vehicle.y - wheel_radius
 		if previous_spring_compression != 0:
-			spring_velocity = (current_spring_compression - previous_spring_compression) / delta
+			var compression_diff = current_spring_compression - previous_spring_compression
+			cprint("logger", ["compression diff", compression_diff])
+			spring_velocity = compression_diff / delta
 		else:
 			spring_velocity = 0
 		
+		cprint("logger", ["spring velocity:", spring_velocity ])
 		cprint("logger", ['previous spring compression', previous_spring_compression])
 		cprint("logger", ['current spring compression', current_spring_compression])
 		previous_spring_compression = current_spring_compression
@@ -77,8 +81,9 @@ func apply_spring_force(delta: float, vehicle: RigidCar, vehicle_rotation: Quate
 		var spring_force: float = spring_stiffness * (spring_rest_distance - previous_spring_compression) # Hooke's law
 		
 		
-		var damping_force: float = spring_damping * spring_velocity
-		var upward_force = spring_force + damping_force
+		var damped_velocity: float = spring_damping * spring_velocity
+		cprint("logger", ["current spring force", spring_force, "damping force", spring_damping, 'spring velocity', spring_velocity, "damped velocity", damped_velocity])
+		var upward_force = spring_force + damped_velocity
 		cprint("logger", ['upward force: ', upward_force])
 		force = Vector3(0, upward_force, 0)
 		#offset = vehicle_rotation * contact_point_vehicle
