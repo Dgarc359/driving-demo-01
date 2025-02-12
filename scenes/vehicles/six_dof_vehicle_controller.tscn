@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://kv088k6lqa8u"]
+
+[ext_resource type="PackedScene" uid="uid://ctgj7yg2027vc" path="res://scenes/vehicles/six_dof_wheel.tscn" id="1_e5py2"]
+[ext_resource type="Script" path="res://scripts/6_dof_vehicle_controller.gd" id="1_juwwo"]
+[ext_resource type="Texture2D" uid="uid://bwg6w4w4xxu7k" path="res://assets/texture/texture_01.png" id="2_tsebc"]
+[ext_resource type="Texture2D" uid="uid://5qd8fnyxspfm" path="res://assets/texture/orange_texture_02.png" id="3_vg5qc"]
+[ext_resource type="Texture2D" uid="uid://vvrblej5okrl" path="res://assets/texture/g_texture_02.png" id="4_cpcm0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyywo"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vxqug"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7nod"]
+albedo_texture = ExtResource("2_tsebc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppk4"]
+albedo_texture = ExtResource("3_vg5qc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv5nf"]
+albedo_texture = ExtResource("4_cpcm0")
+
+[node name="SixDofVehicleController" type="Node3D"]
+
+[node name="Chassis" type="RigidBody3D" parent="." node_paths=PackedStringArray("pivot")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.5, 0)
+script = ExtResource("1_juwwo")
+pivot = NodePath("../CameraOrigin")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Chassis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30835, 0)
+shape = SubResource("BoxShape3D_uyywo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Chassis"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30835, 0)
+mesh = SubResource("BoxMesh_vxqug")
+
+[node name="SixDofWheel" parent="Chassis" instance=ExtResource("1_e5py2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.494112, -0.180024, -0.494112)
+node_a = NodePath("..")
+
+[node name="MeshInstance3D" parent="Chassis/SixDofWheel/Wheel" index="1"]
+material_override = SubResource("StandardMaterial3D_l7nod")
+
+[node name="SixDofWheel2" parent="Chassis" instance=ExtResource("1_e5py2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.494112, -0.180024, 0.505888)
+node_a = NodePath("..")
+
+[node name="MeshInstance3D" parent="Chassis/SixDofWheel2/Wheel" index="1"]
+material_override = SubResource("StandardMaterial3D_1ppk4")
+
+[node name="SixDofWheel3" parent="Chassis" instance=ExtResource("1_e5py2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505888, -0.180024, -0.494112)
+node_a = NodePath("..")
+
+[node name="MeshInstance3D" parent="Chassis/SixDofWheel3/Wheel" index="1"]
+material_override = SubResource("StandardMaterial3D_sv5nf")
+
+[node name="SixDofWheel4" parent="Chassis" instance=ExtResource("1_e5py2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.505888, -0.180024, 0.505888)
+node_a = NodePath("..")
+
+[node name="CameraOrigin" type="Node3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraOrigin"]
+spring_length = 2.0
+margin = 0.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraOrigin/SpringArm3D"]
+transform = Transform3D(-1, -4.79616e-14, -8.74228e-08, -2.64486e-08, 0.953138, 0.302536, 8.3326e-08, 0.302536, -0.953138, 0, 0.391357, -1.69429)
+
+[editable path="Chassis/SixDofWheel"]
+[editable path="Chassis/SixDofWheel2"]
+[editable path="Chassis/SixDofWheel3"]

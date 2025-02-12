@@ -27,6 +27,17 @@ class_name CustomCarController
 
 @onready var VEHICLE_MODEL: Node3D = $"vehicle-suv3"
 
+@export var pivot: Node3D
+
+@export var mouse_sensivity = 0.5
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		pivot.rotate_y(deg_to_rad(-event.relative.x * mouse_sensivity))
+
 
 func get_ray_x_basis(ray: RayCast3D):
 	# ray could be null

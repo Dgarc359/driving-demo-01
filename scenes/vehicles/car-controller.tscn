@@ -12,17 +12,20 @@ point_count = 2
 radius = 0.2772
 height = 1.07965
 
-[node name="Car-controller" type="CharacterBody3D"]
+[node name="Car-controller" type="CharacterBody3D" node_paths=PackedStringArray("pivot")]
 transform = Transform3D(1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, 1, 0, 0, 0)
 script = ExtResource("1_ydyb0")
 s = SubResource("Curve_wimb7")
+pivot = NodePath("CameraOrigin")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-2.88103e-08, -1, 6.70552e-08, 0, 6.70552e-08, 1, -1, 2.88103e-08, -9.32677e-16, 0, 0.243695, 0)
 shape = SubResource("CapsuleShape3D_thmew")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-2.85839e-08, -0.173648, 0.984808, -2.58756e-09, 0.984808, 0.173648, -1, 2.41529e-09, -2.8599e-08, 2.39152, 1.6114, -3.32639e-08)
+[node name="CameraOrigin" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraOrigin"]
+transform = Transform3D(-2.85839e-08, -0.173648, 0.984808, -2.58756e-09, 0.984808, 0.173648, -1, 2.41529e-09, -2.8599e-08, 3.06275, 2.21334, -4.26001e-08)
 
 [node name="vehicle-suv3" parent="." instance=ExtResource("2_na47f")]
 

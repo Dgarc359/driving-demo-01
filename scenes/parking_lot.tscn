@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbohbht45vr6r"]
+[gd_scene load_steps=5 format=3 uid="uid://dbohbht45vr6r"]
 
 [ext_resource type="PackedScene" uid="uid://cwyd5utcqbeyp" path="res://assets/3d-assets/parking-lot.glb" id="1_kupce"]
 [ext_resource type="Texture2D" uid="uid://cyfn7blaxqq2e" path="res://assets/texture/texture_04.png" id="2_llr5c"]
@@ -6,7 +6,15 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3253l"]
 albedo_texture = ExtResource("2_llr5c")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bbiep"]
+friction = 0.5
+
 [node name="parking-lot" instance=ExtResource("1_kupce")]
 
 [node name="Cube" parent="." index="0"]
+layers = 3
 material_override = SubResource("StandardMaterial3D_3253l")
+
+[node name="StaticBody3D" parent="Cube" index="0"]
+collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_bbiep")

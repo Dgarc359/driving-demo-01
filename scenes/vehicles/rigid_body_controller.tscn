@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://unnxntlps2q8"]
+[gd_scene load_steps=5 format=3 uid="uid://unnxntlps2q8"]
 
 [ext_resource type="Script" path="res://scripts/rigid_car.gd" id="1_qn6jt"]
-[ext_resource type="Script" path="res://scripts/wheel_ray_cast_2.gd" id="2_s08y1"]
 [ext_resource type="Script" path="res://scripts/free_look_camera.gd" id="3_fhdvg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qv666"]
@@ -18,22 +17,6 @@ script = ExtResource("1_qn6jt")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.420106, 0)
 shape = SubResource("BoxShape3D_qv666")
-
-[node name="WheelBR" type="RayCast3D" parent="RigidBody3D" groups=["logger"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496068, 0.315577, 0.497245)
-script = ExtResource("2_s08y1")
-
-[node name="WheelFR" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49687, 0.315577, -0.497011)
-script = ExtResource("2_s08y1")
-
-[node name="WheelFL" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49051, 0.315577, -0.492584)
-script = ExtResource("2_s08y1")
-
-[node name="WheelBL" type="RayCast3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495807, 0.315577, 0.503268)
-script = ExtResource("2_s08y1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.275184, 0, 0, 0, 1, 0, 0.425458, 0)

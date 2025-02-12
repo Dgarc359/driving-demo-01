@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://scripts/selectable_vehicle.gd" id="3_ye8yw"]
 [ext_resource type="Resource" uid="uid://beprywepenvya" path="res://assets/resources/vehicles/initial_car_implementation.tres" id="4_etiht"]
 [ext_resource type="Resource" uid="uid://bltlivuj7m7d2" path="res://assets/resources/vehicles/sphere_collision_box_car.tres" id="5_m2xrj"]
-[ext_resource type="Resource" uid="uid://5sai0wlatrn0" path="res://assets/resources/vehicles/rigid_body.tres" id="6_wfsxr"]
+[ext_resource type="Resource" uid="uid://c5tdm1wto0y84" path="res://assets/resources/vehicles/6_dof_vehicle.tres" id="6_2a7ki"]
 
 [resource]
 script = ExtResource("1_elm6f")
 available_maps = Array[PackedScene]([ExtResource("2_r60cp"), ExtResource("1_agckq")])
-available_vehicles = Array[ExtResource("3_ye8yw")]([ExtResource("4_etiht"), ExtResource("5_m2xrj"), ExtResource("6_wfsxr")])
+available_vehicles = Array[ExtResource("3_ye8yw")]([ExtResource("4_etiht"), ExtResource("5_m2xrj"), ExtResource("6_2a7ki")])

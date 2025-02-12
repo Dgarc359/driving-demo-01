@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SelectableVehicle" load_steps=3 format=3 uid="uid://c5tdm1wto0y84"]
+
+[ext_resource type="Script" path="res://scripts/selectable_vehicle.gd" id="1_g81uc"]
+[ext_resource type="PackedScene" uid="uid://kv088k6lqa8u" path="res://scenes/vehicles/six_dof_vehicle_controller.tscn" id="2_07fk1"]
+
+[resource]
+script = ExtResource("1_g81uc")
+display_name = "6 DOF Wheels Vehicle"
+description = ""
+vehicle_scene = ExtResource("2_07fk1")
